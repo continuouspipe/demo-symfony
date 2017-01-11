@@ -1,7 +1,7 @@
 version: "2"
 services:
     web:
-        image: quay.io/continuouspipe/symfony:3-apache_v1
+        build: .
         expose:
             - 80
             - 443

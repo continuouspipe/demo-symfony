@@ -1,0 +1,7 @@
+tasks:
+    images:
+        build:
+            services:
+                web:
+                    image: docker.io/sroze/cp-demo-symfony
+                    naming_strategy: sha1
