@@ -5,3 +5,11 @@ tasks:
                 web:
                     image: docker.io/sroze/cp-demo-symfony
                     naming_strategy: sha1
+    deployment:
+        deploy:
+            cluster: ${CLUSTER}
+            services:
+                web:
+                    specification:
+                        accessibility:
+                            from_external: true
