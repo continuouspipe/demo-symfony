@@ -1,3 +1,7 @@
-FROM quay.io/continuouspipe/symfony:3-apache_v1
+FROM quay.io/continuouspipe/symfony-php7.1-nginx:v1.0
+ARG GITHUB_TOKEN=
+ARG SYMFONY_ENV=prod
+ENV SYMFONY_ENV $SYMFONY_ENV
 
-ADD . /app
+COPY . /app
+RUN container build

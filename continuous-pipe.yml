@@ -8,6 +8,8 @@ tasks:
     deployment:
         deploy:
             cluster: ${CLUSTER}
+            environment:
+                name: '"sfdemo-" ~ code_reference.branch'
             services:
                 web:
                     specification:
@@ -15,7 +17,8 @@ tasks:
                             from_external: true
                         environment_variables:
                             - name: SYMFONY_ENV
-                              value: prod
+                              value: ${SYMFONY_ENV}
+
 
 pipelines:
     - name: Production
