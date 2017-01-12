@@ -3,7 +3,7 @@ tasks:
         build:
             services:
                 web:
-                    image: docker.io/sroze/cp-demo-symfony
+                    image: {IMAGE_NAME}
                     naming_strategy: sha1
     deployment:
         deploy:
