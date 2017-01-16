@@ -14,3 +14,6 @@
 !var/SymfonyRequirements.php
 /vendor/
 /web/bundles/
+
+.cp-remote-env-settings
+.cp-remote-ignore
