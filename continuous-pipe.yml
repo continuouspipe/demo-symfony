@@ -1,5 +1,7 @@
 defaults:
   cluster: ${CLUSTER}
+  environment:
+    name: '"sfdemo-" ~ code_reference.branch'
 
 variables:
   - name: SYMFONY_ENV
@@ -14,8 +16,6 @@ tasks:
           naming_strategy: sha1
   deployment:
     deploy:
-      environment:
-        name: '"sfdemo-" ~ code_reference.branch'
       services:
         web:
           specification:
