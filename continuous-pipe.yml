@@ -20,7 +20,7 @@ tasks:
         web:
           endpoints:
             -
-              name: http
+              name: webtest
               ingress:
                 class: nginx
                 host:
