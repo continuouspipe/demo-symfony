@@ -25,9 +25,6 @@ tasks:
                 class: nginx
                 host:
                   expression: 'code_reference.branch ~ "-sfdemo.inviqa-rmiller.continuouspipe.net"'
-          specification:
-            accessibility:
-              from_external: true
             environment_variables:
               - name: SYMFONY_ENV
                 value: ${SYMFONY_ENV}
