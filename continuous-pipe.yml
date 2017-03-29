@@ -24,7 +24,7 @@ tasks:
               ingress:
                 class: nginx
                 host:
-                  expression: 'code_reference.branch ~ "-sfdemo.inviqa-rmiller.continuouspipe.net"'
+                  expression: 'sfdemo.inviqa-rmiller.continuouspipe.net'
           specification:
             environment_variables:
               - name: SYMFONY_ENV
