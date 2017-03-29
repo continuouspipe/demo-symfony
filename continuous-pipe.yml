@@ -23,7 +23,8 @@ tasks:
               name: http
               ingress:
                 class: nginx
-                host: 'sfdemo.inviqa-rmiller.continuouspipe.net'
+                host:
+                  expression: '"sfdemo.inviqa-rmiller.continuouspipe.net"'
           specification:
             environment_variables:
               - name: SYMFONY_ENV
