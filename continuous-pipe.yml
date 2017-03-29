@@ -18,6 +18,13 @@ tasks:
     deploy:
       services:
         web:
+          endpoints:
+            -
+              name: http
+              ingress:
+                class: nginx
+                host:
+                  expression: 'code_reference.branch ~ "-sfdemo.inviqa-rmiller.continuouspipe.net"'
           specification:
             accessibility:
               from_external: true
