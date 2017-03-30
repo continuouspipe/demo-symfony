@@ -23,12 +23,10 @@ tasks:
               name: webtest
               ingress:
                 class: nginx
+                annotations:
+                  ingress.kubernetes.io/secure-backends: "true"
                 host:
-                  expression: '"sfdemo-ssl.inviqa-rmiller.continuouspipe.net"'
-              ssl_certificates:
-                - name: webtest
-                  key: ${SSL_KEY}
-                  cert: ${SSL_CERT}
+                  expression: '"sfdemo-ssl-wildcard.inviqa-rmiller.continuouspipe.net"'
           specification:
             environment_variables:
               - name: SYMFONY_ENV
