@@ -23,8 +23,6 @@ tasks:
               name: webtest
               ingress:
                 class: nginx
-                annotations:
-                  ingress.kubernetes.io/secure-backends: "true"
                 host:
                   expression: '"sfdemo-ssl-wildcard.inviqa-rmiller.continuouspipe.net"'
           specification:
