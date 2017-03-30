@@ -8,3 +8,5 @@ services:
       - "8080:80"
     volumes:
       - .:/app
+    environment:
+      WEB_HTTP: "true"
