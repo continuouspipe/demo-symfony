@@ -4,7 +4,6 @@ services:
     build: .
     expose:
       - 80
-    ports:
-      - "8080:80"
+      - 443
     volumes:
       - .:/app

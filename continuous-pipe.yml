@@ -24,7 +24,11 @@ tasks:
               ingress:
                 class: nginx
                 host:
-                  expression: '"sfdemo.inviqa-rmiller.continuouspipe.net"'
+                  expression: '"sfdemo-ssl.inviqa-rmiller.continuouspipe.net"'
+              ssl_certificates:
+                - name: webtest
+                  key: ${SSL_KEY}
+                  cert: ${SSL_CERT}
           specification:
             environment_variables:
               - name: SYMFONY_ENV
