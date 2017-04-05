@@ -23,8 +23,7 @@ tasks:
               name: webtest
               ingress:
                 class: nginx
-                host:
-                  expression: '"sfdemo.inviqa-rmiller.continuouspipe.net"'
+                host_suffix: '.inviqa-rmiller.continuouspipe.net'
           specification:
             environment_variables:
               - name: SYMFONY_ENV
