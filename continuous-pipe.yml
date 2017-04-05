@@ -21,10 +21,16 @@ tasks:
           endpoints:
             -
               name: webtest
+              cloud_flare_zone:
+                zone_identifier: ${CLOUD_FLARE_ZONE}
+                authentication:
+                    email: ${CLOUD_FLARE_EMAIL}
+                    api_key: ${CLOUD_FLARE_API_KEY}
+                proxied: true
+                record_suffix: '-rm-inviqa.continuouspipe.net'
               ingress:
                 class: nginx
-                host:
-                  expression: '"sfdemo-ssl-w.inviqa-rmiller.continuouspipe.net"'
+                host_suffix: '-rm-inviqa.continuouspipe.net'
           specification:
             environment_variables:
               - name: SYMFONY_ENV
