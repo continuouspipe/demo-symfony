@@ -31,8 +31,8 @@ tasks:
                               username: ${BASIC_AUTH_USERNAME}
                               password: ${BASIC_AUTH_PASSWORD}
           specification:
-            accessibility:
-              from_external: true
+            #accessibility:
+             # from_external: true
             environment_variables:
               - name: SYMFONY_ENV
                 value: ${SYMFONY_ENV}
