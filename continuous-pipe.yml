@@ -24,6 +24,12 @@ tasks:
                 httplabs:
                     api_key: ${HTTPLABS_API_KEY}
                     project_identifier: ${HTTPLABS_PROJECT_ID}
+                    middlewares:
+                        - template: https://api.httplabs.io/projects/${HTTPLABS_PROJECT_ID}/templates/basic_authentication
+                          config:
+                              realm: This is secure!
+                              username: ${BASIC_AUTH_USERNAME}
+                              password: ${BASIC_AUTH_PASSWORD}
           specification:
             accessibility:
               from_external: true
