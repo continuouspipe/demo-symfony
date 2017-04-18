@@ -18,6 +18,12 @@ tasks:
     deploy:
       services:
         web:
+          endpoints:
+            -
+                name: http
+                httplabs:
+                    api_key: ${HTTPLABS_API_KEY}
+                    project_identifier: ${HTTPLABS_PROJECT_ID}
           specification:
             accessibility:
               from_external: true
