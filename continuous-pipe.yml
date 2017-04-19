@@ -25,14 +25,15 @@ tasks:
                     api_key: ${HTTPLABS_API_KEY}
                     project_identifier: ${HTTPLABS_PROJECT_ID}
                     middlewares:
-                        - template: https://api.httplabs.io/projects/${HTTPLABS_PROJECT_ID}/templates/basic-auth
+                        - template: https://api.httplabs.io/projects/${HTTPLABS_PROJECT_ID}/templates/auth0
                           config:
-                              realm: This is secure!
-                              username: ${BASIC_AUTH_USERNAME}
-                              password: ${BASIC_AUTH_PASSWORD}
+                               client-id: ${AUTH0_CLIENT_ID}
+                               client-secret": ${AUTH0_CLIENT_SECRET}
+                               callback-url": ${AUTH0_CALLBACK_URL}
+                               domain": ${AUTH0_DOMAIN}
+                               cookie-domain": ${AUTH0_COOKIE_DOMAIN}
+                               cookie-https": false
           specification:
-            #accessibility:
-             # from_external: true
             environment_variables:
               - name: SYMFONY_ENV
                 value: ${SYMFONY_ENV}
