@@ -31,6 +31,7 @@ tasks:
                                client-secret: ${AUTH0_CLIENT_SECRET}
                                callback-url: ${AUTH0_CALLBACK_URL}
                                domain: ${AUTH0_DOMAIN}
+                               authorized-email-domain: inviqa.com
                                cookie-domain: ${AUTH0_COOKIE_DOMAIN}
                                cookie-https: false
                                public-key: ${AUTH0_PUBLIC_KEY}
