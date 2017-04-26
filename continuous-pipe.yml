@@ -25,16 +25,17 @@ tasks:
                     api_key: ${HTTPLABS_API_KEY}
                     project_identifier: ${HTTPLABS_PROJECT_ID}
                     middlewares:
-                        - template: https://api.httplabs.io/projects/${HTTPLABS_PROJECT_ID}/templates/auth0
-                          config:
-                               client-id: ${AUTH0_CLIENT_ID}
-                               client-secret: ${AUTH0_CLIENT_SECRET}
-                               callback-url: ${AUTH0_CALLBACK_URL}
-                               domain: ${AUTH0_DOMAIN}
-                               authorized-email-domain: inviqa.com
-                               cookie-domain: ${AUTH0_COOKIE_DOMAIN}
-                               cookie-https: false
-                               public-key: ${AUTH0_PUBLIC_KEY}
+                        #- template: https://api.httplabs.io/projects/${HTTPLABS_PROJECT_ID}/templates/https-only
+                        #- template: https://api.httplabs.io/projects/${HTTPLABS_PROJECT_ID}/templates/auth0
+                        #  config:
+                        #       client-id: ${AUTH0_CLIENT_ID}
+                        #       client-secret: ${AUTH0_CLIENT_SECRET}
+                        #       callback-url: ${AUTH0_CALLBACK_URL}
+                        #       domain: ${AUTH0_DOMAIN}
+                        #       authorized-email-domain: inviqa.com
+                        #       cookie-domain: ${AUTH0_COOKIE_DOMAIN}
+                        #       cookie-https: false
+                        #       public-key: ${AUTH0_PUBLIC_KEY}
           specification:
             environment_variables:
               - name: SYMFONY_ENV
