@@ -25,10 +25,12 @@ tasks:
               - name: SYMFONY_ENV
                 value: ${SYMFONY_ENV}
 
-
 pipelines:
   - name: Production
-    condition: 'not(code_reference.branch matches "/^cpdev/")'
+    condition: 'code_reference.branch in ["master"]'
+    tasks: [ images, deployment ]
+  - name: Feature
+    condition: 'code_reference.branch matches "/^feature/"'
     tasks: [ images, deployment ]
   - name: Remote
     condition: 'code_reference.branch matches "/^cpdev/"'
@@ -36,5 +38,3 @@ pipelines:
     variables:
       - name: SYMFONY_ENV
         value: dev
-
-
