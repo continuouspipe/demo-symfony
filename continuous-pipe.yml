@@ -28,7 +28,7 @@ tasks:
                         - template: https://api.httplabs.io/projects/${HTTPLABS_PROJECT_ID}/templates/backend-ssl
                           config:
                             type: any
-                        #- template: https://api.httplabs.io/projects/${HTTPLABS_PROJECT_ID}/templates/https-only
+                        - template: https://api.httplabs.io/projects/${HTTPLABS_PROJECT_ID}/templates/https-only
                         #- template: https://api.httplabs.io/projects/${HTTPLABS_PROJECT_ID}/templates/auth0
                         #  config:
                         #       client-id: ${AUTH0_CLIENT_ID}
