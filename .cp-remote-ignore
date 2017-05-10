@@ -1,0 +1,17 @@
+.*
+.idea
+.git
+___jb_old___
+___jb_tmp___
+cp-remote-logs
+.cp-remote-settings.yml
+app/cache
+app/logs
+web/css
+web/js
+/var
+vendor
+*___jb_old___
+*___jb_tmp___
+/.cp-remote-ignore
+/.cp-remote-ignore-fetch
