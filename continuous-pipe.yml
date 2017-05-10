@@ -7,6 +7,20 @@ variables:
   - name: SYMFONY_ENV
     value: prod
 
+pipelines:
+  - name: Production
+    condition: 'code_reference.branch in ["master"]'
+    tasks: [ images, deployment ]
+  - name: Feature
+    condition: 'code_reference.branch matches "#^feature/#"'
+    tasks: [ images, deployment ]
+  - name: Remote
+    condition: 'code_reference.branch matches "#^cpdev/#"'
+    tasks: [ images, deployment ]
+    variables:
+      - name: SYMFONY_ENV
+        value: dev
+
 tasks:
   images:
     build:
@@ -34,17 +48,3 @@ tasks:
             environment_variables:
               - name: SYMFONY_ENV
                 value: ${SYMFONY_ENV}
-
-pipelines:
-  - name: Production
-    condition: 'code_reference.branch in ["master"]'
-    tasks: [ images, deployment ]
-  - name: Feature
-    condition: 'code_reference.branch matches "/^feature/"'
-    tasks: [ images, deployment ]
-  - name: Remote
-    condition: 'code_reference.branch matches "/^cpdev/"'
-    tasks: [ images, deployment ]
-    variables:
-      - name: SYMFONY_ENV
-        value: dev
