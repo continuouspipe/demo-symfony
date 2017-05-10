@@ -19,8 +19,18 @@ tasks:
       services:
         web:
           specification:
-            accessibility:
-              from_external: true
+            endpoints:
+              - name: web
+                cloud_flare_zone:
+                  zone_identifier: ${CLOUD_FLARE_ZONE}
+                  authentication:
+                      email: ${CLOUD_FLARE_EMAIL}
+                      api_key: ${CLOUD_FLARE_API_KEY}
+                  proxied: true
+                  record_suffix: '-sfdemo.continuouspipe.net'
+                ingress:
+                  class: nginx
+                  host_suffix: '-sfdemo.continuouspipe.net'
             environment_variables:
               - name: SYMFONY_ENV
                 value: ${SYMFONY_ENV}
