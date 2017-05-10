@@ -59,3 +59,5 @@ tasks:
                 value: ${AUTH_IP_WHITELIST}
               - name: TRUSTED_REVERSE_PROXIES
                 value: ${TRUSTED_REVERSE_PROXIES}
+              - name: WEB_REVERSE_PROXIED
+                value: "true"
