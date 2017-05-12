@@ -15,5 +15,4 @@
 /vendor/
 /web/bundles/
 
-.cp-remote-env-settings
-.cp-remote-ignore
+.cp-remote-settings.yml
