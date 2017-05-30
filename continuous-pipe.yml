@@ -7,6 +7,20 @@ variables:
   - name: SYMFONY_ENV
     value: prod
 
+pipelines:
+  - name: Production
+    condition: 'code_reference.branch in ["master"]'
+    tasks: [ images, deployment ]
+  - name: Feature
+    condition: 'code_reference.branch matches "#^feature/#"'
+    tasks: [ images, deployment ]
+  - name: Remote
+    condition: 'code_reference.branch matches "#^cpdev/#"'
+    tasks: [ images, deployment ]
+    variables:
+      - name: SYMFONY_ENV
+        value: dev
+
 tasks:
   images:
     build:
@@ -14,27 +28,36 @@ tasks:
         web:
           image: ${IMAGE_NAME}
           naming_strategy: sha1
+
   deployment:
     deploy:
       services:
         web:
+          endpoints:
+            - name: web
+              cloud_flare_zone:
+                zone_identifier: ${CLOUD_FLARE_ZONE}
+                authentication:
+                    email: ${CLOUD_FLARE_EMAIL}
+                    api_key: ${CLOUD_FLARE_API_KEY}
+                proxied: true
+                record_suffix: '-sfdemo.continuouspipe.net'
+              ingress:
+                class: nginx
+                host_suffix: '-sfdemo.continuouspipe.net'
           specification:
-            accessibility:
-              from_external: true
             environment_variables:
               - name: SYMFONY_ENV
                 value: ${SYMFONY_ENV}
-
-pipelines:
-  - name: Production
-    condition: 'code_reference.branch in ["master"]'
-    tasks: [ images, deployment ]
-  - name: Feature
-    condition: 'code_reference.branch matches "/^feature/"'
-    tasks: [ images, deployment ]
-  - name: Remote
-    condition: 'code_reference.branch matches "/^cpdev/"'
-    tasks: [ images, deployment ]
-    variables:
-      - name: SYMFONY_ENV
-        value: dev
+              - name: AUTH_HTTP_ENABLED
+                value: "true"
+              - name: AUTH_HTTP_HTPASSWD
+                value: ${AUTH_HTTP_HTPASSWD}
+              - name: AUTH_IP_WHITELIST_ENABLED
+                value: "true"
+              - name: AUTH_IP_WHITELIST
+                value: ${AUTH_IP_WHITELIST}
+              - name: TRUSTED_REVERSE_PROXIES
+                value: ${TRUSTED_REVERSE_PROXIES}
+              - name: WEB_REVERSE_PROXIED
+                value: "true"
