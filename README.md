@@ -1,4 +1,4 @@
-cp-symfony-demo
-===============
+Symfony Demo for ContinuousPipe
+===============================
 
-A Symfony project created on January 11, 2017, 4:26 pm.
+[Get started !](https://www.youtube.com/watch?v=d45YNe7umWI)
