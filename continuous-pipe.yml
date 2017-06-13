@@ -11,8 +11,8 @@ pipelines:
   - name: Production
     condition: 'code_reference.branch in ["master"]'
     tasks: [ images, deployment ]
-  - name: Feature
-    condition: 'code_reference.branch matches "#^feature/#"'
+  - name: Feature branches
+    condition: 'code_reference.branch not in ["master"] and not(code_reference.branch matches "#^cpdev/#")'
     tasks: [ images, deployment ]
   - name: Remote
     condition: 'code_reference.branch matches "#^cpdev/#"'
