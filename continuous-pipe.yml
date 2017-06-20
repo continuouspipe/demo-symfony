@@ -44,7 +44,6 @@ tasks:
               - name: SYMFONY_ENV
                 value: ${SYMFONY_ENV}
 
-
 pipelines:
   - name: Production
     condition: 'not(code_reference.branch matches "/^cpdev/")'
