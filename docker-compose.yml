@@ -1,7 +1,9 @@
 version: "2"
+
 services:
   web:
-    build: .
+    build:
+      context: .
     expose:
       - 80
       - 443
@@ -10,3 +12,5 @@ services:
       - "443:443"
     volumes:
       - .:/app
+    environment:
+      WEB_HTTPS_ONLY: "true"
