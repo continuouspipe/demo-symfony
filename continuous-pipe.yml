@@ -53,3 +53,8 @@ tasks:
                 value: ${TRUSTED_REVERSE_PROXIES}
               - name: WEB_REVERSE_PROXIED
                 value: "true"
+          deployment_strategy:
+            readiness_probe:
+              type: http
+              port: 80
+              path: /
