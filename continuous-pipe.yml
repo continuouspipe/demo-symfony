@@ -35,24 +35,24 @@ tasks:
         web:
           endpoints:
             - name: web
-              cloud_flare_zone:
-                zone_identifier: ${CLOUD_FLARE_ZONE}
-                authentication:
-                    email: ${CLOUD_FLARE_EMAIL}
-                    api_key: ${CLOUD_FLARE_API_KEY}
-                proxied: true
-                record_suffix: '-sfdemo.continuouspipe.net'
+#              cloud_flare_zone:
+#                zone_identifier: ${CLOUD_FLARE_ZONE}
+#                authentication:
+#                    email: ${CLOUD_FLARE_EMAIL}
+#                    api_key: ${CLOUD_FLARE_API_KEY}
+#                proxied: true
+#                record_suffix: '-m1.cp.ohpolly.cloud'
               ingress:
                 class: nginx
-                host_suffix: '-sfdemo.continuouspipe.net'
+                host_suffix: '-m1.cp.ohpolly.cloud'
           specification:
             environment_variables:
               - name: SYMFONY_ENV
                 value: ${SYMFONY_ENV}
-              - name: TRUSTED_REVERSE_PROXIES
-                value: ${TRUSTED_REVERSE_PROXIES}
-              - name: WEB_REVERSE_PROXIED
-                value: "true"
+#              - name: TRUSTED_REVERSE_PROXIES
+#                value: ${TRUSTED_REVERSE_PROXIES}
+#              - name: WEB_REVERSE_PROXIED
+#                value: "true"
           deployment_strategy:
             readiness_probe:
               type: http
